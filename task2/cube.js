@@ -17,6 +17,8 @@ var theta = [ 0, 0, 0 ];
 
 var thetaLoc;
 
+var speed = 1;
+
 window.onload = function init()
 {
     canvas = document.getElementById( "gl-canvas" );
@@ -66,6 +68,14 @@ window.onload = function init()
     };
     document.getElementById( "zButton" ).onclick = function () {
         axis = zAxis;
+    };
+
+    document.getElementById("speedA").onclick = function () {
+        speed = 2;
+    };
+
+    document.getElementById("speedB").onclick = function () {
+        speed = 4;
     };
 
     render();
@@ -121,7 +131,7 @@ function render()
 {
     gl.clear( gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-    theta[axis] += 2.0;
+    theta[axis] += speed;
     gl.uniform3fv(thetaLoc, theta);
 
     gl.drawArrays( gl.TRIANGLES, 0, 12 );
