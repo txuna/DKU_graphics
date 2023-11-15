@@ -134,7 +134,7 @@ function render()
     theta[axis] += speed;
     gl.uniform3fv(thetaLoc, theta);
 
-    gl.drawArrays( gl.TRIANGLES, 0, 12 );
+    gl.drawArrays( gl.TRIANGLES, 0, NumVertices );
 
     requestAnimFrame( render );
 }
